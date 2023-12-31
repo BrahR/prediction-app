@@ -1,0 +1,115 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:src="@drawable/car"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="585dp"
+        android:background="@drawable/rectangle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RadioGroup
+            android:id="@+id/RadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+               <RadioButton
+                   android:id="@+id/knn"
+                   android:layout_marginTop="300dp"
+                   android:layout_marginLeft="50dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:checked="false"
+                   android:padding="10dp"
+                   android:text="KNN"
+                   android:textSize="20sp"
+                   android:textColor="#515151"/>
+
+                <RadioButton
+                    android:id="@+id/dt"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:padding="10dp"
+                    android:text="Decision Tree"
+                    android:textSize="20sp"
+                    android:textColor="#515151" />
+
+                <RadioButton
+                    android:id="@+id/bayes"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:padding="10dp"
+                    android:text="Bayes Network"
+                    android:textSize="20sp"
+                    android:textColor="#515151"/>
+
+        </RadioGroup>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+    <RelativeLayout
+        android:id="@+id/Kinput"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="210dp"
+        android:background="#FFFFFF">
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="155dp"
+            android:layout_height="50dp"
+            android:background="@drawable/border"
+            android:layout_marginTop="15dp"
+            android:paddingLeft="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:text="K:"
+            android:textSize="17sp"
+            android:layout_marginLeft="20dp"
+            />
+    </RelativeLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/Button"
+        android:layout_width="320dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="550dp"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/background"
+        android:text="Continue"
+        app:backgroundTint="@null"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
