@@ -6,28 +6,15 @@ public class CarFloat {
     private double horsePower;
     private double weight;
     private double acceleration;
-
     private double result;
 
-    public CarFloat(double milesPerGallon, double displacement, double horsePower, double weight, double acceleration,double result) {
+    public CarFloat(double milesPerGallon, double displacement, double horsePower, double weight, double acceleration, double result) {
         this.milesPerGallon = milesPerGallon;
         this.displacement = displacement;
         this.horsePower = horsePower;
         this.weight = weight;
         this.acceleration = acceleration;
-        this.result=result;
-    }
-
-    @Override
-    public String toString() {
-        return "CarFloat{" +
-                "milesPerGallon=" + milesPerGallon +
-                ", displacement=" + displacement +
-                ", horsePower=" + horsePower +
-                ", weight=" + weight +
-                ", acceleration=" + acceleration +
-                ", result=" + result +
-                '}';
+        this.result = result;
     }
 
     public void setMilesPerGallon(double milesPerGallon) {
