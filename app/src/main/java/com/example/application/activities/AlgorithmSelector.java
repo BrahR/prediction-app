@@ -17,10 +17,6 @@ import com.example.application.*;
 import com.example.application.algorithms.Bayes;
 import com.example.application.algorithms.DT;
 import com.example.application.algorithms.Knn;
-import com.example.application.algorithms.PredictionAlgorithm;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class AlgorithmSelector extends AppCompatActivity {
     @Override

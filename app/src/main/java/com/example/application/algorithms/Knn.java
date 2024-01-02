@@ -2,7 +2,6 @@ package com.example.application.algorithms;
 
 import com.example.application.Car;
 
-import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Knn {

@@ -3,10 +3,6 @@ package com.example.application.algorithms;
 import com.example.application.Car;
 
 public class DT  {
-    public static void buildClassedData() {
-
-    }
-
     public static String calc(Car car) {
         String origin;
         if (car.getWeight() <= 1812.5) {
