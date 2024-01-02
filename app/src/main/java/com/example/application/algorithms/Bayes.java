@@ -7,9 +7,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bayes implements PredictionAlgorithm{
-    @Override
-    public String calc(Car carToPred) {
+public class Bayes {
+    public static String calc(Car carToPred) {
         List<Car> cars = Car.data;
 
         int mgp = 0;
@@ -140,10 +139,5 @@ public class Bayes implements PredictionAlgorithm{
         } else {
             return "Your car is European";
         }
-    }
-
-    @Override
-    public String calc(Car car, int k) {
-        return this.calc(car);
     }
 }

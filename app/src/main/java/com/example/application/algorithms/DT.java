@@ -2,13 +2,12 @@ package com.example.application.algorithms;
 
 import com.example.application.Car;
 
-public class DT implements PredictionAlgorithm {
+public class DT  {
     public static void buildClassedData() {
 
     }
 
-    @Override
-    public String calc(Car car) {
+    public static String calc(Car car) {
         String origin;
         if (car.getWeight() <= 1812.5) {
             if (car.getDisplacement() <= 94.5) {
@@ -24,10 +23,5 @@ public class DT implements PredictionAlgorithm {
             }
         }
         return "Your car is " + origin;
-    }
-
-    @Override
-    public String calc(Car car, int k) {
-        return this.calc(car);
     }
 }

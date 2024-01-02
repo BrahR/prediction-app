@@ -7,12 +7,15 @@ import com.opencsv.bean.CsvToBeanBuilder;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.Serializable;
 import java.util.*;
 
 public class Car implements Serializable {
     public static final String[] ORIGINS = {"american", "european", "japanese"};
+    public static List<Car> data;
     @CsvBindByPosition(position = 0)
     private int milesPerGallon;
     @CsvBindByPosition(position = 1)
@@ -44,8 +47,8 @@ public class Car implements Serializable {
         this.acceleration = acceleration;
     }
 
-    public static List<Car> loadCSV(String file) throws FileNotFoundException {
-        Reader reader = new BufferedReader(new FileReader("src/main/res/raw/" + file));
+    public static void loadCSV(InputStream file) throws FileNotFoundException {
+        Reader reader = new BufferedReader(new InputStreamReader(file));
         CsvToBean<Car> csvReader = new CsvToBeanBuilder<Car>(reader)
                 .withType(Car.class)
                 .withSeparator(',')
@@ -53,7 +56,7 @@ public class Car implements Serializable {
                 .withIgnoreLeadingWhiteSpace(true)
                 .build();
 
-        return csvReader.parse();
+        data = csvReader.parse();
     }
 
 

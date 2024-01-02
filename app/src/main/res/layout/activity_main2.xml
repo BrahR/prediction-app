@@ -30,41 +30,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-               <RadioButton
-                   android:id="@+id/knn"
-                   android:layout_marginTop="300dp"
-                   android:layout_marginLeft="50dp"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:checked="false"
-                   android:padding="10dp"
-                   android:text="KNN"
-                   android:textSize="20sp"
-                   android:textColor="#515151"/>
+            <RadioButton
+                android:id="@+id/knn"
+                android:layout_marginTop="300dp"
+                android:layout_marginLeft="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:padding="10dp"
+                android:text="KNN"
+                android:textSize="20sp"
+                android:textColor="#515151"/>
 
-                <RadioButton
-                    android:id="@+id/dt"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="50dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:padding="10dp"
-                    android:text="Decision Tree"
-                    android:textSize="20sp"
-                    android:textColor="#515151" />
+            <RadioButton
+                android:id="@+id/dt"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:padding="10dp"
+                android:text="Decision Tree"
+                android:textSize="20sp"
+                android:textColor="#515151" />
 
-                <RadioButton
-                    android:id="@+id/bayes"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="50dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:padding="10dp"
-                    android:text="Bayes Network"
-                    android:textSize="20sp"
-                    android:textColor="#515151"/>
+            <RadioButton
+                android:id="@+id/bayes"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:padding="10dp"
+                android:text="Bayes Network"
+                android:textSize="20sp"
+                android:textColor="#515151"/>
 
         </RadioGroup>
     </RelativeLayout>
@@ -73,32 +73,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints">
-    <RelativeLayout
-        android:id="@+id/Kinput"
-        android:visibility="invisible"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="300dp"
-        android:layout_marginLeft="210dp"
-        android:background="#FFFFFF">
-        <EditText
-            android:id="@+id/editText4"
-            android:layout_width="155dp"
-            android:layout_height="50dp"
-            android:background="@drawable/border"
-            android:layout_marginTop="15dp"
-            android:paddingLeft="15dp"
-            android:inputType="number"/>
+        <RelativeLayout
+            android:id="@+id/Kinput"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="300dp"
+            android:layout_marginLeft="210dp"
+            android:background="#FFFFFF">
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="155dp"
+                android:layout_height="50dp"
+                android:background="@drawable/border"
+                android:layout_marginTop="15dp"
+                android:paddingLeft="15dp"
+                android:inputType="number"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:text="K:"
-            android:textSize="17sp"
-            android:layout_marginLeft="20dp"
-            />
-    </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:text="K:"
+                android:textSize="17sp"
+                android:layout_marginLeft="20dp"
+                />
+        </RelativeLayout>
     </LinearLayout>
     <Button
         android:id="@+id/Button"

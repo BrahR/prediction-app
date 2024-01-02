@@ -5,14 +5,8 @@ import com.example.application.Car;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class Knn implements PredictionAlgorithm {
-    @Override
-    public String calc(Car car) {
-        return null;
-    }
-
-    @Override
-    public String calc(Car car, int k) {
+public class Knn {
+    public static String calc(Car car, int k) {
         ArrayList<Double> distances = new ArrayList<>();
         for (Car c : Car.data) {
             distances.add(car.distance(c));

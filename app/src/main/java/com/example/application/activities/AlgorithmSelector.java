@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.application.*;
 import com.example.application.algorithms.Bayes;
@@ -22,12 +23,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AlgorithmSelector extends AppCompatActivity {
-    public final HashMap<String, PredictionAlgorithm> algorithms = new HashMap<>() {{
-        put("knn", new Knn());
-        put("bayes", new Bayes());
-        put("dt", new DT());
-    }};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,16 +62,33 @@ public class AlgorithmSelector extends AppCompatActivity {
             Car car = (Car) intent.getSerializableExtra("car");
 
             RadioGroup radioGroup1 = findViewById(R.id.RadioGroup);
-            String selectedRadio = String.valueOf(radioGroup1.getCheckedRadioButtonId());
+            int selectedRadio = radioGroup.getCheckedRadioButtonId();
 
-            EditText kEditor = findViewById(R.id.editText4);
-            int k = kEditor != null ? Integer.parseInt(kEditor.getText().toString()) : 0;
+            if (radioGroup.getCheckedRadioButtonId() !=- 1) {
+                String origin;
 
-            String origin = algorithms.get(selectedRadio.toLowerCase()).calc(car, k);
-            System.out.println(origin);
-            Intent intent2 = new Intent(AlgorithmSelector.this, AlgorithmResults.class);
-            intent2.putExtra("origin", origin);
-            startActivity(intent2);
+                if (selectedRadio==R.id.knn) {
+                    try {
+                        EditText editText = findViewById(R.id.editText4);
+                        int k = Integer.parseInt(editText.getText().toString());
+                        System.out.println(k);
+                        origin = Knn.calc(car, k);
+                    } catch (NumberFormatException e) {
+                        Toast.makeText(getApplicationContext(), "Please enter valid numbers in all fields", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                } else if (selectedRadio==R.id.bayes) {
+                    origin = Bayes.calc(car);
+                } else {
+                    origin = DT.calc(car);
+                }
+
+                Intent intent2 = new Intent(AlgorithmSelector.this, AlgorithmResults.class);
+                intent2.putExtra("origin", origin);
+                startActivity(intent2);
+            } else {
+                Toast.makeText(getApplicationContext(), "Please select a ML algorithm", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }
