@@ -14,11 +14,11 @@ public class Knn {
         ArrayList<Double> sortedDistances = new ArrayList<>(distances);
         Collections.sort(sortedDistances);
 
-        HashMap<String, Integer> origins = new HashMap<>() {{
-            put(Car.ORIGINS[0], 0);
-            put(Car.ORIGINS[1], 0);
-            put(Car.ORIGINS[2], 0);
-        }};
+        HashMap<String, Integer> origins = new HashMap<>();
+
+        origins.put(Car.ORIGINS[0], 0);
+        origins.put(Car.ORIGINS[1], 0);
+        origins.put(Car.ORIGINS[2], 0);
 
         for (int i = 0; i < k; i++) {
             double distance = sortedDistances.get(i);
