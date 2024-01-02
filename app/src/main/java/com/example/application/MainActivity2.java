@@ -10,6 +10,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 public class MainActivity2 extends AppCompatActivity {
 
     @Override
@@ -54,21 +56,33 @@ public class MainActivity2 extends AppCompatActivity {
                 Car car = (Car) intent.getSerializableExtra("car");
 
                 RadioGroup radioGroup = findViewById(R.id.RadioGroup);
-                String selectedRadio = String.valueOf(radioGroup.getCheckedRadioButtonId());
-                String origin="";
-                if(selectedRadio.equals("knn")){
-                    EditText editText = findViewById(R.id.editText4);
-                    int k = Integer.parseInt(editText.getText().toString());
-                    origin=Knn.calc(car, k);
-                } else if (selectedRadio.equals("bayes")) {
-                    origin=Bayes.calc(car);
+                int selectedRadio = radioGroup.getCheckedRadioButtonId();
+
+                if(radioGroup.getCheckedRadioButtonId()!=-1){
+                    String origin = "";
+
+                    if (selectedRadio==R.id.knn) {
+                        try{
+                            EditText editText = findViewById(R.id.editText4);
+                            int k = Integer.parseInt(editText.getText().toString());
+                            System.out.println(k);
+                            origin = Knn.calc(car, k);
+                        }catch (NumberFormatException e){
+                            Toast.makeText(getApplicationContext(), "Please enter valid numbers in all fields", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    } else if (selectedRadio==R.id.bayes) {
+                        origin = Bayes.calc(car);
+                    } else {
+                        origin = DT.calc(car);
+                    }
+                    Intent intent2 = new Intent(MainActivity2.this, MainActivity3.class);
+                    intent2.putExtra("origin", origin);
+                    startActivity(intent2);
+
                 }else{
-                    origin=DT.calc(car);
+                    Toast.makeText(getApplicationContext(), "Please select a ML algorithm", Toast.LENGTH_SHORT).show();
                 }
-                System.out.println(origin);
-                Intent intent2 = new Intent(MainActivity2.this, MainActivity3.class);
-                intent2.putExtra("origin", origin);
-                startActivity(intent2);
             }
         });
 

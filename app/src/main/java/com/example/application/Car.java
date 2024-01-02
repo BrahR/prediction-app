@@ -45,7 +45,7 @@ public class Car implements Serializable {
     }
 
     public static List<Car> loadCSV(String file) throws FileNotFoundException {
-        Reader reader = new BufferedReader(new FileReader("src/main/java/res/raw/" + file));
+        Reader reader = new BufferedReader(new FileReader("src/main/res/raw/" + file));
         CsvToBean<Car> csvReader = new CsvToBeanBuilder<Car>(reader)
                 .withType(Car.class)
                 .withSeparator(',')
