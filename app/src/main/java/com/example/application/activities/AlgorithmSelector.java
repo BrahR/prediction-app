@@ -18,6 +18,8 @@ import com.example.application.algorithms.Bayes;
 import com.example.application.algorithms.DT;
 import com.example.application.algorithms.Knn;
 
+import java.util.Locale;
+
 public class AlgorithmSelector extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,25 +64,50 @@ public class AlgorithmSelector extends AppCompatActivity {
 
             if (radioGroup.getCheckedRadioButtonId() !=- 1) {
                 String origin;
+                double precision;
+                double recall;
+                double fScore;
+                double accuracy;
 
                 if (selectedRadio==R.id.knn) {
                     try {
                         EditText editText = findViewById(R.id.editText4);
                         int k = Integer.parseInt(editText.getText().toString());
                         System.out.println(k);
+                        Knn knn = new Knn();
+                        knn.predict(k);
+
                         origin = Knn.calc(car, k);
+                        precision = knn.macroPrecision();
+                        recall = knn.macroRecall();
+                        fScore = knn.macroFScore();
+                        accuracy = knn.getAccuracy();
                     } catch (NumberFormatException e) {
                         Toast.makeText(getApplicationContext(), "Please enter valid numbers in all fields", Toast.LENGTH_SHORT).show();
                         return;
                     }
                 } else if (selectedRadio==R.id.bayes) {
+                    Bayes bayes = new Bayes();
                     origin = Bayes.calc(car);
+                    precision = bayes.macroPrecision();
+                    recall = bayes.macroRecall();
+                    fScore = bayes.macroFScore();
+                    accuracy = bayes.getAccuracy();
                 } else {
+                    DT dt = new DT();
                     origin = DT.calc(car);
+                    precision = dt.macroPrecision();
+                    recall = dt.macroRecall();
+                    fScore = dt.macroFScore();
+                    accuracy = dt.getAccuracy();
                 }
 
                 Intent intent2 = new Intent(AlgorithmSelector.this, AlgorithmResults.class);
                 intent2.putExtra("origin", origin);
+                intent2.putExtra("precision", String.format(Locale.US, "%.2f", precision * 100));
+                intent2.putExtra("recall", String.format(Locale.US, "%.2f", recall * 100));
+                intent2.putExtra("fScore", String.format(Locale.US, "%.2f", fScore * 100));
+                intent2.putExtra("accuracy", String.format(Locale.US, "%.2f", accuracy * 100));
                 startActivity(intent2);
             } else {
                 Toast.makeText(getApplicationContext(), "Please select a ML algorithm", Toast.LENGTH_SHORT).show();

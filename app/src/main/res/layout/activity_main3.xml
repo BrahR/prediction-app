@@ -40,7 +40,7 @@
         android:layout_marginLeft="40dp"
         android:background="#FFFFFF">
         <EditText
-            android:id="@+id/editText1"
+            android:id="@+id/precision"
             android:layout_width="320dp"
             android:layout_height="70dp"
             android:background="@drawable/border"
@@ -64,7 +64,7 @@
         android:layout_marginLeft="40dp"
         android:background="#FFFFFF">
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/recall"
             android:layout_width="320dp"
             android:layout_height="70dp"
             android:background="@drawable/border"
@@ -89,7 +89,7 @@
         android:layout_marginLeft="40dp"
         android:background="#FFFFFF">
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/fScore"
             android:layout_width="320dp"
             android:layout_height="70dp"
             android:background="@drawable/border"
@@ -113,7 +113,7 @@
         android:layout_marginLeft="40dp"
         android:background="#FFFFFF">
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/accuracy"
             android:layout_width="320dp"
             android:layout_height="70dp"
             android:background="@drawable/border"

@@ -6,7 +6,14 @@ import com.example.application.CarFloat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bayes {
+public class Bayes extends Metrics {
+    public void predict(int k) {
+        for (Car car : Car.data) {
+            String predicted = calc(car);
+            predictedData.add(predicted);
+        }
+    }
+
     public static String calc(Car carToPred) {
         List<Car> cars = Car.data;
 
@@ -132,11 +139,11 @@ public class Bayes {
         }
 
         if (floatCars.get(0).getResult() > floatCars.get(1).getResult() && floatCars.get(0).getResult() > floatCars.get(2).getResult()) {
-            return "Your car is Japanese";
+            return "japanese";
         } else if (floatCars.get(1).getResult() > floatCars.get(0).getResult() && floatCars.get(1).getResult() > floatCars.get(2).getResult()) {
-            return "Your car is American";
+            return "american";
         } else {
-            return "Your car is European";
+            return "european";
         }
     }
 }
