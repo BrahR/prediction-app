@@ -7,7 +7,7 @@ import com.example.application.Car;
 import java.util.ArrayList;
 
 public abstract class Metrics {
-    public ArrayList<String> predictedData = new ArrayList<>();
+    public static ArrayList<String> predictedData = new ArrayList<>();
     public abstract void predict(int k);
     public double getAccuracy() {
         int correct = 0;

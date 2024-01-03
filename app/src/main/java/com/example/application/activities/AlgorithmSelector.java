@@ -18,6 +18,7 @@ import com.example.application.algorithms.Bayes;
 import com.example.application.algorithms.DT;
 import com.example.application.algorithms.Knn;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class AlgorithmSelector extends AppCompatActivity {
@@ -71,6 +72,7 @@ public class AlgorithmSelector extends AppCompatActivity {
 
                 if (selectedRadio==R.id.knn) {
                     try {
+                        Knn.predictedData = new ArrayList<>();
                         EditText editText = findViewById(R.id.editText4);
                         int k = Integer.parseInt(editText.getText().toString());
                         System.out.println(k);
